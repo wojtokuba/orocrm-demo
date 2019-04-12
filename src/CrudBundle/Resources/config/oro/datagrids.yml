@@ -1,0 +1,89 @@
+datagrids:
+  app-data-grid:
+    source:
+      type: orm
+      query:
+        select:
+        - data.id
+        - data.name
+        - data.createdAt
+        - CONCAT(Creator.firstName, ' ', Creator.lastName) AS creatorName
+        from:
+        - { table: CrudBundle:Data, alias: data }
+        where:
+          and:
+          - data.visibility = true
+        join:
+          inner:
+          - { join: data.createdBy, alias: Creator }
+    columns:
+      id:
+        label: ID
+        frontend_type: integer
+      name:
+        label: Nazwa
+        frontend_type: string
+        inline_editing:
+          enable: true
+      createdAt:
+        label: Data stworzenia
+        frontend_type: datetime
+      creatorName:
+        label: Stwórca
+        frontend_type: string
+    sorters:
+      columns:
+        id:
+          data_name: data.id
+        name:
+          data_name: data.name
+        createdAt:
+          data_name: data.createdAt
+        creatorName:
+          data_name: data.creatorName
+      default:
+        id: DESC
+    filters:
+      columns:
+        id:
+          type: number
+          data_name: data.id
+        name:
+          type: string
+          data_name: data.name
+        createdAt:
+          type: datetime
+          data_name: data.createdAt
+        creatorName:
+          type: string
+          data_name: data.creatorName
+
+    inline_editing:
+      enable: true
+      entity_name: CrudBundle\Entity\Data
+      save_api_accessor:
+        http_method: PATCH
+        route: crud_quick_edit
+    properties:
+      update_link:
+        type:       url
+        route:      crud_update
+        params:     [ id ]
+      delete_link:
+        type:       url
+        route:      crud_delete
+        params:     [ id ]
+    actions:
+      delete:
+        type:          delete
+        label:         oro.grid.action.delete
+        link:          delete_link
+        icon:          trash-o
+        acl_resource:  crud_data_delete
+      update:
+        type:          navigate
+        acl_resource:  crud_data_update
+        label:         oro.grid.action.update
+        icon:          edit
+        link:          update_link
+        rowAction:     true

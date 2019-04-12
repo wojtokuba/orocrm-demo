@@ -1,0 +1,9 @@
+crud.data.entity_label: 'CRUD Data'
+crud.data.entity_plural_label: 'CRUD Datas'
+crud.data.entity_description: 'Represents example CRUD Data'
+crud.data.created_at.label: 'Data utworzenia'
+crud.data.created_by.label: Stwórca
+crud.data.id.label: Id
+crud.data.name.label: Nazwa
+crud.data.updated_at.label: 'Data modyfikacji'
+crud.data.visibility.label: Widoczność

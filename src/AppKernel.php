@@ -15,6 +15,7 @@ class AppKernel extends OroKernel
     {
         $bundles = array(
         // bundles
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle,
         );
 
         if ('dev' === $this->getEnvironment()) {

@@ -1,0 +1,23 @@
+acls:
+  crud_data_create:
+    type: entity
+    class: CrudBundle\Entity\Data
+    permission: CREATE
+    label: Tworzenie elementu data
+
+  crud_data_delete:
+    type: entity
+    class: CrudBundle\Entity\Data
+    permission: DELETE
+    label: Usuwanie elementu data
+
+  crud_data_update:
+    type: entity
+    class: CrudBundle\Entity\Data
+    permission: EDIT
+    label: Modyfikacja elementu data
+
+  crud_data_view:
+    type: entity
+    class: CrudBundle\Entity\Data
+    permission: VIEW

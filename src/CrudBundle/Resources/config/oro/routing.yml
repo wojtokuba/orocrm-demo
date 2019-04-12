@@ -1,0 +1,4 @@
+crud_bundle:
+    resource:     "@CrudBundle/Controller"
+    type:         annotation
+    prefix:       /

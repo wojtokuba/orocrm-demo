@@ -1,0 +1,15 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+
+{% set gridName = 'app-data-grid' %}
+{% set pageTitle = 'Elementy listy CRUD' %}
+
+{% block navButtons %}
+    {% if resource_granted('CREATE', entity) %}
+        <div class="btn-group">
+            {{ UI.addButton({
+                'path': path('crud_create'),
+                'entity_label': 'Element',
+            }) }}
+        </div>
+    {% endif %}
+{% endblock %}

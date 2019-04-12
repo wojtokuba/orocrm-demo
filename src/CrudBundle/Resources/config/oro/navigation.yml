@@ -1,0 +1,20 @@
+navigation:
+  menu_config:
+    items:
+      data_tab:
+        label: 'Zakładka CRUD'
+        uri: '#'
+        position: 100
+        extras:
+          icon: fa-folder
+
+      data_list:
+        label: Lista CRUD
+        route: crud_index
+
+    tree:
+      application_menu:
+        children:
+          data_tab:
+            children:
+              data_list: ~
